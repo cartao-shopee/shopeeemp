@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="194" height="81" viewBox="0 0 194 81" role="img" aria-label="Shopee">
+  <title>Shopee</title>
+  <rect width="194" height="81" fill="#EE4D2D"/>
+  <!-- Shopping bag handle -->
+  <path d="M28.7 26.1V24.0a9.6 9.6 0 0 1 19.2 0v2.1"
+        fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Shopping bag -->
+  <path d="M17.1 26.4Q17.0 25.3 18.3 25.3H58.1Q59.3 25.3 59.2 26.6L57.4 62.0Q57.3 64.2 55.1 64.2H21.0Q18.8 64.2 18.7 62.0Z"
+        fill="#FFFFFF"/>
+  <!-- Letter inside the bag -->
+  <text x="37.9" y="55.9" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="29"
+        font-weight="400" fill="#EE4D2D">S</text>
+  <!-- Wordmark -->
+  <text x="66.7" y="56.7"
+        font-family="Arial, Helvetica, sans-serif" font-size="33"
+        font-weight="400" letter-spacing="-1.35" fill="#FFFFFF">Shopee</text>
+</svg>
